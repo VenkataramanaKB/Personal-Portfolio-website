@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venkat | Portfolio</title>
+    <link rel ="stylesheet" href="style.css"/>
+    <link rel ="stylesheet" href="mediaqueries.css"/>
+
+</head>
+<body>
+      <nav id="desktop-nav">
+        <div class ="name">K B Venkataramana</div>
+          <div class ="list-ele">
+              <ul class="list">
+                  <li><a href = "#about"> About</a></li>
+                  <li><a href = "#experience"> Experience</a></li>
+                  <li><a href = "#projects"> Projects</a></li>
+                  <li><a href = "#skills"> Skills</a></li>
+                  <li><a href = "#contact"> Contact</a></li>
+              </ul>
+          </div>
+      </nav>
+      <nav id="hamburger-nav">
+          <div class="name">K B Venkataramana</div>
+          <div class="hamburger-menu">
+            <div class="hamburger-icon" onclick="toggleMenu()">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="menu-links">
+              <li><a href="#about" onclick="toggleMenu()">About</a></li>
+              <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+              <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+              <li><a href="#skills" onclick="toggleMenu()">Skills</a></li>
+              <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+            </div>
+          </div>
+        </nav>
+      <section id ="profile">
+        <div class="section_pic-container">
+          <img src="./images/avatar-(ProfilePictureMaker.com).png" alt="Venkataramana Profile Picture" >
+        </div>
+        <div class="section_text">
+          <p class="section_text_p1">Welcome!! I'm</p>
+          <h1 class ="title">Venkataramana </h1>
+          <p class="section_text_p2">Software Developer and Roboticist</p>
+          <button class="btn btn-color-2" onclick="window.open('./images/RESUME.pdf')">Download CV</button>
+          <button class="btn btn-color-1" onclick="location.href='./#contact'">
+            Contact 
+          </button>
+          <div id ="socials-container">
+            <img src ="images/linkedin.png" alt="My linkedin" class="icon" onclick="location.href='https://www.linkedin.com/in/venkataramanakb'">
+            <img src ="images/github.png" alt="My github" class="icon" onclick="location.href='https://github.com/VenkataramanaKB'">
+          </div>
+        </div>
+      </section>
+      <section id ="about">
+        <div class="title">
+          <h1>About</h1>
+        </div>
+        <div class ="aboutme-card">
+          <div class="card">
+            <div class="card-info">
+              <div class="aboutme-text">
+                <ul class="aboutme-list">
+                  
+                    <li class="b1">👋🏽Hello, I'm Venkat, a sophomore pursuing my bachelor's in Electronics and Communication Engineering. Ready to learn, re-learn and unlearn.</li>
+                    <li class="b">🌞I'm a Machine Learning enthusiast and roboticist, working currently on the related tech.</li>
+                    <li class="b">🎯I have a keen interest in web development, machine learning, and robotics, particularly in computer vision and autonomous mobility.</li>
+                    <li class="b">💻I'm a multilingual developer, I'm proficient in C, C++, Java, Javascript and Python.</li>
+                    <li class="b">🔗Apart from tech, I'm a carnatic percussionist and also a fitness enthusiast.
+                
+                  </ul>
+            </div>
+            </div>
+          </div>
+      </div>
+      </section>
+      <section id="experience">
+        <div class="experience-title">
+          <h1>
+            Experience
+          </h1>
+        </div>
+        <div class="experience-card1">
+          <div class ="experience-card1-title">
+            <h2>Education</h2>
+          </div>
+              <div class="rmk">
+                <h4>
+                  RMK ENGINEERING COLLEGE
+                </h4>
+                <p>Electronics & Communication</p>
+                <div class="grade-rmk">
+                  <p ><b>Grade 8.1</b></p>
+                </div>
+                
+          </div>
+          <p class="year_rmk">2022-2026</p>
+
+              <div class="velammal">
+                <h4>
+                  Velammal Matriculation
+                </h4>
+                <p class="velammal-course">XII</p>
+                <div class="grade-velammal">
+                  <p ><b>92.5%</b></p>
+                </div>
+                
+              </div>
+          <p class ="year_velammal">2020-2022</p>
+
+              <div class="sboa">
+                <h4>
+                  SBOA School& Junior College
+                </h4>
+                <p class="sboa-course">X</p>
+                <div class="grade-sboa">
+                  <p ><b>90%</b></p>
+                </div>
+                
+              </div>
+          <p class ="year_sboa">2007-2020</p>
+
+
+        </div>
+        <div class="experience-card2">
+          <div class ="experience-card2-title">
+            <h1> 
+              Accomplishments
+
+            </h1>
+          </div>
+          <div class="accompalishment-content">
+              <ul class="accompalishment-content-list">
+                <li><b>Top 10 Placement in National Level Hackathon by IIT Bombay</b>
+                    <ul class="accompalishment-list">
+                      <li class="list-text">Successfully competed against numerous teams from across the country, demonstrating technical skills, creativity, and problem-solving abilities.</li>
+                    </ul>
+                </li>
+                <li><b>Research Paper Presentations</b>
+                  <ul class="accompalishment-list">
+                    <li class="list-text">Won awards at over 3 National level conferences for research presentations.</li>
+                    <li class="list-text-1">Addressed audiences of 100+ engineers and received feedback from more than 10 jury members, showcasing strong communication and presentation skills.</li>
+                  </ul>
+              </li>
+              
+                
+
+              </ul>
+          </div>
+        </div>
+
+      </section>
+      <section id="projects">
+        <div class="project-title">
+          <h1>
+          Projects
+          </h1>
+        </div>
+        <div class="project-1">
+          <div class="project-card">
+            <div class="project-card-image">
+              <img class="project-img1" src="./images/PPE-Output.png">
+            </div>
+            <p class="project-card-title">Personal Protection Equipment Detection </p>
+            <p class="project-card-body">
+              It helps to monitor and find out if the construction workers are wearing necessary safety equipments. Created 7 custom objects and trained on over 1300+ datas.
+            </p>
+            <p class="footer"><b>YOLO V8 - OPENCV</b> </p>
+            <div class="project-button">
+              <button class="btn-project btn-project-1" onclick="location.href='https://github.com/VenkataramanaKB/Personal-Protection-Equipment-Detection'">
+                Github 
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="project-2">
+          <div class="project-card">
+            <div class="project-card-image">
+              <img class="project-img2" src="./images/gesture-based.png">
+            </div>
+            <p class="project-card-title">Gesture-Based Home Automation</p>
+            <p class="project-card-body">
+              It is a home automation system leverages the power of computer vision and machine learning to create an intuitive, gesture-based interface for controlling household devices. By analyzing user gestures, specific processes such as turning on or off the lights can be seamlessly automated with a response time of 200 milliseconds.
+            </p>
+            <p class="footer"><b>OPENCV - SERIAL COMMUNICATION - MEDIAPIPE</b> </p>
+            <div class="project-button">
+              <button class="btn-project btn-project-1" onclick="location.href='https://github.com/VenkataramanaKB/Gesture-Based-Home-Automation'">
+                Github 
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="project-3">
+          <div class="project-card">
+            <div class="project-card-image">
+              <img class="project-img2" src="./images/wagon.png">
+            </div>
+            <p class="project-card-title">Computer vision based monitoring of Underloading of Coal Wagons</p>
+            <p class="project-card-body">
+              An IoT device is designed to monitor the underloading of coal wagons and promptly notify the concerned authorities and payloaders. Utilizing advanced computer vision and TensorFlow, the system ensures precise monitoring and efficient communication.
+            </p>
+            <p class="footer"><b>OPENCV - TENSORFLOW</b> </p>
+            <div class="project-button">
+              <button class="btn-project btn-project-1" onclick="location.href='https://youtu.be/yVLwRLy26nk?si=jBd3oH1Qifpe8QuD'">
+                Youtube
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class ="project-4">
+          <div class="project-card">
+            <div class="project-card-image">
+              <img class="project-img2" src="./images/portfolio.png">
+            </div>
+            <p class="project-card-title">Personal Portfolio Website</p>
+            <p class="project-card-body">
+              I designed and developed my personal portfolio website from scratch to showcase my skills, projects, and professional experience.
+            </p>
+            <p class="footer"><b>HTML - CSS - JAVASCRIPT</b> </p>
+            <div class="project-button">
+              <button class="btn-project btn-project-1" onclick="location.href='#profile'">
+                Don't Click
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="skills">
+        <div class="skills-title">
+          <h1>
+            Skills
+          </h1>
+        </div>
+        <div class="skills-content">
+              <div class="skills-card">
+                <span class="skills-card-title"></span>
+                <div class="skills-card__tags">
+                  <ul class="tag">
+                    <li class="tag__name">python</li>
+                    <li class="tag__name">c</li>
+                    <li class="tag__name">c++</li>
+                    <li class="tag__name">java</li>
+                    
+                    
+                    <li class="tag__name">computer vision</li>
+                    <li class="tag__name">machine learning</li>
+                    <li class="tag__name">ros2</li>
+                    <li class="tag__name">tensorflow</li>
+                    <li class="tag__name">SLAM</li>
+                    <li class="tag__name">gazebo</li> 
+                    <li class="tag__name">iot</li>
+                    
+                    <li class="tag__name">html</li>
+                    <li class="tag__name">css</li>
+                    <li class="tag__name">javascript</li>
+                    
+                    
+                    <li class="tag__name">ux/ui</li>
+
+                  </ul>
+                </div>
+              </div>
+      </div>
+      </section>
+      <section id="contact">
+        <div class="contact-title">
+          Contact Me
+        </div>
+        <div class="contact-content">
+          <p>Wanna interact or collaborate? Drop a text here!! Looking forward to interact !! </p>
+        </div>
+        <div class="contact-form">
+          
+                <form class="form" action="https://api.web3forms.com/submit" method="POST">
+                  
+                  <input type="hidden" name="access_key" value="c61c9541-b928-4757-9d0e-d44f433ae9ad">
+                  <input id="inputMail" type="email" placeholder="Your email" class="input" name="email">
+                  <textarea id ="inputText"placeholder="Hey Venkat,"  name="message"></textarea>
+                  <input type="hidden" name="redirect" value="#footer">
+                  <button type="submit">Submit</button>
+                </form>
+          </div>
+      </section>
+      <footer id="#footer">
+        <nav id="nav-">
+          <div class="list-ele">
+            <ul class="list">
+              <li><a href="#about">About</a></li>
+              <li><a href="#experience">Experience</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+        </nav>
+        <p>&#169; 2024 Venkataramana</p>
+      </footer>
+      <script src="script.js"></script>
+  
+</body>
+</html>

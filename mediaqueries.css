@@ -1,0 +1,178 @@
+@media screen and (max-width: 1200px){
+    #desktop-nav{
+        display:none;
+    }
+    #hamburger-nav{
+        display: flex;
+    }
+}
+@media screen and (max-width: 1200px) {
+    #desktop-nav {
+      display: none;
+    }
+    #hamburger-nav {
+      display: flex;
+    }
+    #experience,
+    .experience-details-container {
+      margin-top: 2rem;
+    }
+    #profile,
+    .section-container {
+      display: block;
+      height: auto;
+    }
+
+    
+    section,
+    .section-container {
+      height: auto;
+    }
+    section {
+      margin: 0 5%;
+    }
+    .section_pic-container {
+      width: 275px;
+      height: 275px;
+      margin: 0 auto 2rem;
+    }
+    .title{
+      margin-top: 50px;
+    }
+    #experience{
+      height: 300px;
+    }
+    .project-title{
+      margin-top: 50px;
+    }
+    #project{
+      margin-top: auto;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    
+    #contact,
+    footer {
+      margin-top: 100px;
+      height: 20vh;
+    }
+    #profile {
+      margin-top: 50px;
+      height: 50vh;
+      
+    }
+    article {
+      font-size: 1rem;
+    }
+    footer nav {
+      height: fit-content;
+      
+    }
+    .about-containers,
+    .contact-info-upper-container,
+    .btn-container {
+      flex-wrap: wrap;
+    }
+    .contact-info-container {
+      margin: 0;
+    }
+    .contact-info-container p,
+    .nav-links li a {
+      font-size: 1rem;
+    }
+    .experience-sub-title {
+      font-size: 1.25rem;
+    }
+    .name{
+      font-size: 1.5rem;
+    }
+    .nav-links {
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+    }
+    .section_pic-container {
+      max-width: auto;
+      margin-left: auto;
+      margin-right: auto;
+      height: 46vw;
+      justify-content: center;
+    }
+    .section_text_p1{
+      margin-top: 50px;
+      margin-bottom: 0px;
+    }
+    .section_text_p2 {
+      font-size: 1.25rem;
+    }
+    .title {
+      font-size: 2rem;
+    }
+    .text-container {
+      text-align: justify;
+    }
+    .experience-card1,
+    .experience-card2{
+      max-width: auto;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .title,
+    .experience-title,
+    .skills-title,
+    .contact-title{
+      text-align: center;
+    }
+    .project-title{
+      text-align: center;
+      margin-top: 150px;
+    }
+    .name{
+      max-width: auto;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .contact-content{
+      max-width: auto;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .form{
+      width: 400px;
+      height: 300px;
+    }
+    div{
+      max-width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #skills{
+      
+      margin-bottom: 50px;
+    }
+    #contact{
+      margin-top: 200px;
+      margin-bottom: 100px;
+    }
+    #about{
+      margin-top: 250px;
+    }
+    .name{
+      justify-self: center;
+      
+    }
+    #contact{
+      height: auto;
+    }
+    .projects{
+      margin-top: 50px;
+    }
+    #nav-{
+      display: none;
+    }
+  }
+
+
+
+
