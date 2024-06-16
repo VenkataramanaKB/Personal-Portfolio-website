@@ -101,12 +101,13 @@
     }
     .section_text_p1{
       margin-top: 50px;
-      margin-bottom: 0px;
+      
     }
     .section_text_p2 {
       font-size: 1.25rem;
     }
     .title {
+        margin-top: auto;
       font-size: 2rem;
     }
     .text-container {
