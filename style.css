@@ -483,6 +483,14 @@ section {
 }
 
 /*Projects*/
+.projects-flex{
+    
+    display:flexbox;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+    grid-row: auto;
+}
 
 #projects{
     height: auto;
@@ -497,7 +505,7 @@ section {
 .project-card {
     padding: 20px;
     width: 400px;
-    min-height: 400px;
+    min-height: 500px;
     border-radius: 20px;
     background: black;
     box-shadow: 5px 5px 8px rgb(248, 190, 0),
