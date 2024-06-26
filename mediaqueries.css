@@ -48,6 +48,9 @@
     #project{
       margin-top: auto;
     }
+    .projects-flex{
+      display: inline-block;
+    }
   }
   
   @media screen and (max-width: 600px) {
