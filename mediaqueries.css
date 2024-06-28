@@ -41,7 +41,7 @@
       margin-top: 50px;
     }
     #experience{
-      height: 1300px;
+      height: 1500px;
     }
     .project-title{
       margin-top: 50px;
@@ -110,7 +110,7 @@
     }
     .card{
       align-items: center;
-      width: 300px;
+      width: 400px;
     }
     .about-containers,
     .contact-info-upper-container,
@@ -200,7 +200,7 @@
       margin-bottom: 100px;
     }
     #about{
-      margin-top: 100px;
+      margin-top: 250px;
     }
     .name{
       text-align: center;
@@ -228,9 +228,6 @@
       max-width: fit-content;
       margin-left: auto;
       margin-right: auto;
-    }
-    .project-card{
-      width: 300px;
     }
   
 }
