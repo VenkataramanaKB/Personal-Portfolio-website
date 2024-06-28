@@ -200,7 +200,7 @@
       margin-bottom: 100px;
     }
     #about{
-      margin-top: 250px;
+      margin-top: 100px;
     }
     .name{
       text-align: center;
@@ -228,7 +228,6 @@
       max-width: fit-content;
       margin-left: auto;
       margin-right: auto;
-      width: 300px;
     }
     .project-card{
       width: 300px;
