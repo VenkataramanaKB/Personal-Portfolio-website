@@ -41,7 +41,7 @@
       margin-top: 50px;
     }
     #experience{
-      height: 1500px;
+      height: 1300px;
     }
     .project-title{
       margin-top: 50px;
@@ -110,7 +110,7 @@
     }
     .card{
       align-items: center;
-      width: 400px;
+      width: 300px;
     }
     .about-containers,
     .contact-info-upper-container,
@@ -131,7 +131,7 @@
       height: auto;
     }
     .name{
-      font-size: 1.5rem;
+      font-size: 2rem;
     }
     .nav-links {
       flex-direction: column;
@@ -142,7 +142,7 @@
       max-width: auto;
       margin-left: auto;
       margin-right: auto;
-      height: 46vw;
+      height: 30vw;
       justify-content: center;
     }
     .section_text_p1{
@@ -203,7 +203,7 @@
       margin-top: 250px;
     }
     .name{
-      text-align: left;
+      text-align: center;
       
       padding-left: 100px;
       
@@ -228,6 +228,10 @@
       max-width: fit-content;
       margin-left: auto;
       margin-right: auto;
+      width: 300px;
+    }
+    .project-card{
+      width: 300px;
     }
   
 }
