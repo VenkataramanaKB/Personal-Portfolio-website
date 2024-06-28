@@ -161,7 +161,7 @@ section {
     height: 96vh;
     margin: 0 10rem;
     box-sizing: border-box;
-    min-height: fit-content;
+    min-height: 500px;
 }
 
 .section-container {
@@ -358,6 +358,7 @@ section {
 
 /*Experience*/
 
+
 .experience-card1 {
     margin-top: 50px;
     width: 400px;
@@ -366,10 +367,13 @@ section {
     background: black;
     box-shadow: 15px 15px 30px rgb(248, 190, 0),
                -15px -15px 30px rgb(248, 190, 0);
-    float: left;
+    
     margin-bottom: 40px;
     
-   
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    
 }
 
 .experience-card2 {
@@ -378,14 +382,23 @@ section {
     height: 600px;
     border-radius: 30px;
     background: black;
-    box-shadow: 15px 15px 30px rgb(248, 190, 0),
-               -15px -15px 30px rgb(248, 190, 0);
+    box-shadow: 15px 15px 30px  rgb(248, 190, 0),
+               -15px -15px 30px  rgb(248, 190, 0);
     
     margin-bottom: 40px;
-    float: right;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+.experience-flex{
+    
+    display:flexbox;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+    grid-row: auto;
     
 }
-
 
 
 
@@ -483,6 +496,7 @@ section {
 }
 
 /*Projects*/
+
 .projects-flex{
     
     display:flexbox;
@@ -540,6 +554,8 @@ section {
     margin: 13px 0 0 10px;
     color: rgb(255, 255, 255);
     font-size: 15px;
+    padding: 20px;
+    text-align: justify;
     
 }
   
@@ -611,7 +627,7 @@ section {
     flex-wrap: wrap;
     color: rgb(248, 190, 0);
     border-radius: 15px;
-    box-shadow: -20px 20px 0px -5px rgb(248, 190, 0);
+    box-shadow: -20px 20px 10px -5px rgb(248, 190, 0);
     
 }
   
@@ -686,11 +702,11 @@ section {
     
 }
 .contact-content{
-    padding:50px;
+    
     max-width: fit-content;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 30px;
+    
 
 }
 .form {

@@ -5,6 +5,7 @@
     #hamburger-nav{
         display: flex;
     }
+    
 }
 @media screen and (max-width: 1200px) {
     #desktop-nav {
@@ -40,7 +41,7 @@
       margin-top: 50px;
     }
     #experience{
-      height: 300px;
+      height: 1500px;
     }
     .project-title{
       margin-top: 50px;
@@ -48,8 +49,39 @@
     #project{
       margin-top: auto;
     }
+    #project{
+      margin-top: auto;
+    }
     .projects-flex{
-      display: inline-block;
+      display: flexbox;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-auto-rows: auto;
+      grid-row: auto;
+      
+    }
+
+    .experience-flex{
+      display: flexbox;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-auto-rows: auto;
+      grid-row: auto;
+      max-width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      
+    }
+    .form{
+      width: 500px;
+      height: 400px;
+    }
+    .contact-title{
+      margin-top: 50px;
+      padding: 0;
+    }
+    #contact{
+      padding-top: 0;
     }
   }
   
@@ -58,12 +90,16 @@
     #contact,
     footer {
       margin-top: 100px;
-      height: 20vh;
+      height: auto;
+      
     }
     #profile {
-      margin-top: 50px;
-      height: 50vh;
+      margin-top: 0px;
+      height: auto;
       
+    }
+    #about{
+      margin-top: auto;
     }
     article {
       font-size: 1rem;
@@ -71,6 +107,10 @@
     footer nav {
       height: fit-content;
       
+    }
+    .card{
+      align-items: center;
+      width: 400px;
     }
     .about-containers,
     .contact-info-upper-container,
@@ -87,8 +127,11 @@
     .experience-sub-title {
       font-size: 1.25rem;
     }
+    #experience{
+      height: auto;
+    }
     .name{
-      font-size: 1.5rem;
+      font-size: 2rem;
     }
     .nav-links {
       flex-direction: column;
@@ -110,7 +153,7 @@
       font-size: 1.25rem;
     }
     .title {
-        margin-top: auto;
+      margin-top: auto;
       font-size: 2rem;
     }
     .text-container {
@@ -118,7 +161,7 @@
     }
     .experience-card1,
     .experience-card2{
-      max-width: auto;
+      max-width: fit-content;
       margin-left: auto;
       margin-right: auto;
     }
@@ -130,30 +173,27 @@
     }
     .project-title{
       text-align: center;
-      margin-top: 150px;
+      
     }
-    .name{
-      max-width: auto;
-      margin-left: auto;
-      margin-right: auto;
-    }
+  
     .contact-content{
       max-width: auto;
       margin-left: auto;
       margin-right: auto;
     }
     .form{
-      width: 400px;
+      width: 300px;
       height: 300px;
     }
-    div{
-      max-width: fit-content;
-      margin-left: auto;
-      margin-right: auto;
-    }
+    
     #skills{
       
       margin-bottom: 50px;
+    }
+    .skills-card{
+      width: 400px;
+      height: 400px;
+
     }
     #contact{
       margin-top: 200px;
@@ -163,8 +203,9 @@
       margin-top: 250px;
     }
     .name{
-      justify-self: center;
-        padding-left: 75px;
+      text-align: center;
+      
+      padding-left: 100px;
       
     }
     #contact{
@@ -174,9 +215,22 @@
       margin-top: 50px;
     }
     #nav-{
-      display: none;
+      display: flex;
+      
     }
-  }
+    .list{
+      font-size: 1rem;
+    }
+    .experience-card1,
+    .experience-card2{
+      display: inline-block;
+      float: none;
+      max-width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+}
 
 
 
