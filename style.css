@@ -322,6 +322,9 @@ section {
     border-radius: .7rem;
     
 }
+body{
+    scroll-behavior: smooth;
+}
    
 .card .title {
     font-weight: bold;
@@ -338,7 +341,9 @@ section {
     gap:2rem;
     
     
+    
 }
+
 .aboutme-text{
     padding-left:20px;
     padding-right: 20px;

@@ -49,9 +49,6 @@
     #project{
       margin-top: auto;
     }
-    #project{
-      margin-top: auto;
-    }
     .projects-flex{
       display: flexbox;
       display: grid;
@@ -131,7 +128,7 @@
       height: auto;
     }
     .name{
-      font-size: 1.5rem;
+      font-size: 2rem;
     }
     .nav-links {
       flex-direction: column;
@@ -168,7 +165,8 @@
     .title,
     .experience-title,
     .skills-title,
-    .contact-title{
+    .contact-title,
+    .name{
       text-align: center;
     }
     .project-title{
@@ -229,7 +227,13 @@
       margin-left: auto;
       margin-right: auto;
     }
-  
+    .card{
+      width: 300px;
+    }
+    .experience-card1,
+    .experience-card2{
+      width: 350px;
+    }
 }
 
 
