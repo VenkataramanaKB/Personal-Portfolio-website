@@ -91,12 +91,12 @@
       
     }
     #profile {
-      margin-top: 0px;
-      height: auto;
+      margin-bottom: 0px;
+      height: 100px;
       
     }
     #about{
-      margin-top: auto;
+      margin-top: 0;
     }
     article {
       font-size: 1rem;
@@ -128,7 +128,7 @@
       height: auto;
     }
     .name{
-      font-size: 1.5rem;
+      font-size: 2rem;
     }
     .nav-links {
       flex-direction: column;
@@ -162,10 +162,14 @@
       margin-left: auto;
       margin-right: auto;
     }
+    .experience-card2{
+      height: auto;
+    }
     .title,
     .experience-title,
     .skills-title,
-    .contact-title{
+    .contact-title,
+    .name{
       text-align: center;
     }
     .project-title{
@@ -182,7 +186,14 @@
       width: 300px;
       height: 300px;
     }
-    
+    .project-card{
+      width: 350px;
+    }
+    .project-img2,
+    .project-img1{
+      width: 200px;
+      margin-left: 75px;
+    }
     #skills{
       
       margin-bottom: 50px;
@@ -233,6 +244,11 @@
     .experience-card2{
       width: 350px;
     }
+    .trademark{
+      margin-bottom: 5px;
+      margin-top: 10px;
+    }
+
 }
 
 
