@@ -165,8 +165,7 @@
     .title,
     .experience-title,
     .skills-title,
-    .contact-title,
-    .name{
+    .contact-title{
       text-align: center;
     }
     .project-title{
