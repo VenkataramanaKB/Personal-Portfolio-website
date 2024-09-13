@@ -546,13 +546,16 @@ body{
     margin-top: 5px;
 }
   
-.project-card-image {
+.project-card-image,{
     
     background-color: black;
     border-radius: 15px;
     background: black;
     box-shadow: inset 5px 5px 3px black,
               inset -5px -5px 3px black;
+}
+.project-img2{
+    width: 400px;
 }
 .project-img1{
     border-radius: 15px;
@@ -587,7 +590,8 @@ body{
     margin-right: auto;
     margin-top: 100px;
 }
-.project-4{
+.project-4,
+.project-5{
     max-width: fit-content;
     margin-left: auto;
     margin-right: auto;
@@ -595,7 +599,8 @@ body{
     margin-bottom: 50px;
 }
 /*Project buttons*/
-.btn-project {
+.btn-project
+{
     font-weight: 600;
     transition: all 300ms ease;
     padding: 1rem;
@@ -608,7 +613,7 @@ body{
     border: rgb(248, 190, 0) 0.1rem solid;
     
 }
-  
+
 .btn-project-1:hover {
     cursor: pointer;
     background: rgb(248, 190, 0);
@@ -621,7 +626,12 @@ body{
     margin-right: auto;
     margin-top: 20px;
 }
-
+.new_button{
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
 
 /*Skills Section*/
 
