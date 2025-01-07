@@ -186,7 +186,29 @@ section {
     align-self: center;
     text-align: center;
 }
-  
+/* typewriter*/
+.typewriter-container {
+    font-size: 3rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.typewriter-container .cursor {
+    display: inline-block;
+    background-color: #fff; /* White cursor */
+    width: 3px;
+    margin-left: 3px;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
 .section_text p {
     font-weight: 600;
 }
@@ -200,11 +222,7 @@ section {
     margin-bottom: 1rem;
 }
   
-.title {
-    font-size: 3rem;
-    text-align: center;
-    
-}
+
 
 #socials-container {
     display: flex;
