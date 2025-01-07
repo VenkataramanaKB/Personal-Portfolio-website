@@ -95,6 +95,10 @@
       height: 100px;
       
     }
+      .typewriter-container {
+      font-size: 2rem;
+      
+  }
     #about{
       margin-top: 0;
     }
