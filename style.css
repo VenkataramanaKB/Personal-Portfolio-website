@@ -221,10 +221,8 @@ section {
     font-size: 1.75rem;
     margin-bottom: 1rem;
 }
-<<<<<<< HEAD
-  
 
-=======
+
 /*Typewriter*/ 
 .typewriter-container {
     font-size: 3rem;
@@ -253,7 +251,6 @@ section {
     text-align: center;
     
 }
->>>>>>> 8db13ec52d9e5efcee87dcc5a0e87b43d688f766
 
 #socials-container {
     display: flex;
@@ -595,7 +592,7 @@ body{
     margin-top: 5px;
 }
   
-.project-card-image,{
+.project-card-image{
     
     background-color: black;
     border-radius: 15px;
