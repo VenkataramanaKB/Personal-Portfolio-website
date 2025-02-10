@@ -1,9 +1,12 @@
+import Navbar from './components/Navbar/Navbar'
+import Hero from './components/Hero/Hero'
 
-
-const page = () => {
+export default function Home() {
   return (
-    <div>page</div>
+    <main className="min-h-screen bg-black">
+      <Navbar />
+      <Hero />
+      {/* Other content */}
+    </main>
   )
 }
-
-export default page
