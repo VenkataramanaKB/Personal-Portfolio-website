@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
+    "framer-motion": "^11.0.3",
+    "gsap": "^3.12.7",
     "motion": "^12.4.0",
     "next": "15.1.6",
     "react": "^19.0.0",

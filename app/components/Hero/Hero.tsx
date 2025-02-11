@@ -3,7 +3,29 @@
 import { useEffect, useState } from 'react'
 
 const Hero = () => {
+  const [time, setTime] = useState<string>('')
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+
+  useEffect(() => {
+    const updateIndianTime = () => {
+      const options: Intl.DateTimeFormatOptions = {
+        timeZone: 'Asia/Kolkata',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true
+      }
+      const indianTime = new Date().toLocaleTimeString('en-US', options)
+      setTime(indianTime)
+    }
+
+    updateIndianTime()
+    const timeInterval = setInterval(updateIndianTime, 1000)
+
+    return () => {
+      clearInterval(timeInterval)
+    }
+  }, [])
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -19,28 +41,23 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Gradient Background */}
-      <div 
-        className="absolute inset-0 bg-black"
-        style={{
-          background: `radial-gradient(circle at ${mousePosition.x * 100}% ${mousePosition.y * 100}%, rgba(57, 255, 20, 0.03), transparent 25%)`
-        }}
-      >
-        {/* Subtle Grid Pattern */}
-        <div className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `linear-gradient(#39ff14 1px, transparent 1px), linear-gradient(to right, #39ff14 1px, transparent 1px)`,
-            backgroundSize: '4rem 4rem'
-          }}
-        />
+      {/* Top Bar with Hello World and Time */}
+      <div className="absolute top-20 w-full">
+        <div className="max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-10 flex justify-between items-center">
+          <p className="text-white/70 text-sm font-medium">Oh, Hello World!</p>
+          <div className="text-white/70 text-sm font-medium flex items-center gap-2">
+            <span>🇮🇳</span>
+            <span>{time} IST</span>
+          </div>
+        </div>
       </div>
 
-      {/* Content */}
+      {/* Main Content */}
       <div className="relative z-10 text-center px-4">
         <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
           Hi, I'm K B Venkataramana
         </h1>
-        <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto">
+        <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-4">
           A passionate developer crafting digital experiences with code
         </p>
         <div className="mt-8">
@@ -66,6 +83,20 @@ const Hero = () => {
         >
           <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
         </svg>
+      </div>
+
+      <div 
+        className="absolute inset-0 bg-black"
+        style={{
+          background: `radial-gradient(circle at ${mousePosition.x * 100}% ${mousePosition.y * 100}%, rgba(57, 255, 20, 0.08), transparent 10%)`
+        }}
+      >
+        <div className="absolute inset-0 opacity-[0.05]"
+          style={{
+            backgroundImage: `linear-gradient(#333333 1px, transparent 1px), linear-gradient(to right, #333333 1px, transparent 1px)`,
+            backgroundSize: '4rem 4rem'
+          }}
+        />
       </div>
     </section>
   )

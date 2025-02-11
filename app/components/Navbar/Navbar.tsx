@@ -1,57 +1,144 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import Link from 'next/link'
+import { usePathname, useRouter } from 'next/navigation'
+import gsap from 'gsap'
+import { handleSmoothScroll } from '@/app/utils/navigation'
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const menuRef = useRef<HTMLDivElement>(null)
+  const menuItemsRef = useRef<HTMLDivElement>(null)
+  const pathname = usePathname()
+  const router = useRouter()
 
   const menuItems = [
-    { label: 'about', href: '#about' },
-    { label: 'projects', href: '#projects' },
-    { label: 'contact', href: '#contact' },
+    { 
+      label: 'about', 
+      href: '/about',
+      homeSection: 'about'
+    },
+    { 
+      label: 'projects', 
+      href: '/projects',
+      homeSection: 'projects'
+    },
+    { 
+      label: 'contact', 
+      href: '/contact',
+      homeSection: 'contact'
+    },
     { 
       label: 'linkedin', 
-      href: 'https://www.linkedin.com', // Replace with your LinkedIn URL
-      className: 'text-[#39ff14]' 
+      href: 'https://www.linkedin.com',
+      className: 'text-[#39ff14]',
+      external: true
     }
   ]
 
+  const handleNavigation = (item: typeof menuItems[0]) => {
+    setIsMenuOpen(false)
+    
+    if (item.external) {
+      window.open(item.href, '_blank')
+      return
+    }
+
+    // Navigate to route
+    router.push(item.href)
+  }
+
+  useEffect(() => {
+    if (!menuRef.current || !menuItemsRef.current) return
+
+    const menu = menuRef.current
+    const items = menuItemsRef.current
+
+    if (isMenuOpen) {
+      // Open animation
+      gsap.set(menu, { display: 'flex' })
+      gsap.fromTo(menu, 
+        { opacity: 0 },
+        { opacity: 1, duration: 0.3 }
+      )
+      gsap.fromTo(items,
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.4, delay: 0.2 }
+      )
+    } else {
+      // Close animation
+      gsap.to(items, { y: 50, opacity: 0, duration: 0.3 })
+      gsap.to(menu, {
+        opacity: 0,
+        duration: 0.3,
+        delay: 0.2,
+        onComplete: () => gsap.set(menu, { display: 'none' })
+      })
+    }
+  }, [isMenuOpen])
+
+  const handleHomeClick = () => {
+    // Close mobile menu if open
+    setIsMenuOpen(false)
+    // Scroll to top smoothly
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      <nav className="bg-black relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 relative">
+      <nav className="bg-black/50 backdrop-blur-sm relative">
+        <div className="max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-10">
+          <div className="flex items-center justify-between h-20 relative">
             {/* Brand Name */}
             <div className="flex-shrink-0">
-              <a href="/" className="text-white font-bold text-2xl">
+              <Link 
+                href="/" 
+                className="text-white font-bold text-2xl"
+                onClick={handleHomeClick}
+              >
                 K B Venkataramana
-              </a>
+              </Link>
             </div>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-8">
+            <div className="hidden lg:block">
+              <div className="ml-10 flex items-baseline space-x-10">
                 {menuItems.map((item) => (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    target={item.label === 'linkedin' ? '_blank' : undefined}
-                    rel={item.label === 'linkedin' ? 'noopener noreferrer' : undefined}
-                    className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${
-                      item.className || 'text-gray-200 hover:text-[#39ff14]'
-                    }`}
-                  >
-                    {item.label}
-                  </a>
+                  item.external ? (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${
+                        item.className || 'text-gray-200 hover:text-[#39ff14]'
+                      }`}
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <button
+                      key={item.label}
+                      onClick={() => handleNavigation(item)}
+                      className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${
+                        pathname === item.href 
+                          ? 'text-[#39ff14]' 
+                          : 'text-gray-200 hover:text-[#39ff14]'
+                      }`}
+                    >
+                      {item.label}
+                    </button>
+                  )
                 ))}
               </div>
             </div>
 
             {/* Mobile Menu Button */}
-            <div className="md:hidden">
+            <div className="lg:hidden">
               <button
                 type="button"
-                className="inline-flex items-center justify-center p-2 rounded-md text-gray-200 hover:text-white"
+                className="inline-flex items-center justify-center p-2 rounded-md text-gray-200 hover:text-white z-50 relative"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
               >
                 <div className="w-6 h-6 relative">
@@ -78,26 +165,48 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Full Screen Mobile Menu */}
         <div
-          className={`md:hidden transition-all duration-300 ease-in-out ${
-            isMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
-          } overflow-hidden`}
+          ref={menuRef}
+          className="fixed inset-0 top-0 left-0 right-0 bottom-0 bg-black/80 backdrop-blur-md hidden lg:hidden z-50 flex-col items-center justify-center"
+          style={{ 
+            display: 'none',
+            height: '100vh',
+            position: 'fixed',
+            top: 0
+          }}
         >
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black">
+          <div 
+            ref={menuItemsRef} 
+            className="flex flex-col items-center space-y-8"
+          >
             {menuItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                target={item.label === 'linkedin' ? '_blank' : undefined}
-                rel={item.label === 'linkedin' ? 'noopener noreferrer' : undefined}
-                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-300 ${
-                  item.className || 'text-gray-200 hover:text-[#39ff14]'
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.label}
-              </a>
+              item.external ? (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`text-3xl font-medium transition-colors duration-300 ${
+                    item.className || 'text-gray-200 hover:text-[#39ff14]'
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <button
+                  key={item.label}
+                  onClick={() => handleNavigation(item)}
+                  className={`text-3xl font-medium transition-colors duration-300 ${
+                    pathname === item.href 
+                      ? 'text-[#39ff14]' 
+                      : 'text-gray-200 hover:text-[#39ff14]'
+                  }`}
+                >
+                  {item.label}
+                </button>
+              )
             ))}
           </div>
         </div>
