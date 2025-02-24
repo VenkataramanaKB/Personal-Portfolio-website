@@ -31,7 +31,7 @@ const Navbar = () => {
     },
     { 
       label: 'linkedin', 
-      href: 'https://www.linkedin.com',
+      href: 'https://www.linkedin.com/in/venkataramanakb',
       className: 'text-[#39ff14]',
       external: true
     }
