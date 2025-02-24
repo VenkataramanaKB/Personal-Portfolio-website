@@ -3,6 +3,9 @@
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import gsap from 'gsap'
+import { useWindowSize } from '@/app/hooks/useWindowSize'
+import ScrollReveal from '../ScrollReveal'
+import { usePathname } from 'next/navigation'
 
 interface Project {
   id: number
@@ -57,6 +60,10 @@ const projects: Project[] = [
 ]
 
 export default function Projects() {
+  const pathname = usePathname()
+  const isHomePage = pathname === '/'
+  const { width } = useWindowSize()
+  const isLargeScreen = width ? width >= 1024 : false  // lg breakpoint is 1024px
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [hoveredProject, setHoveredProject] = useState<Project | null>(null)
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
@@ -115,8 +122,19 @@ export default function Projects() {
     }
   }, [selectedProject])
 
+  const handleProjectHover = (project: Project | null) => {
+    if (isLargeScreen) {
+      setHoveredProject(project)
+    }
+  }
+
   return (
-    <section className="relative min-h-[100dvh] pt-40 pb-32 px-4" id="projects">
+    <section 
+      className={`relative min-h-[100dvh] ${
+        isHomePage ? 'pt-0' : 'pt-32 md:pt-48'
+      } pb-20 md:pb-32 px-4`} 
+      id="projects"
+    >
       {/* Gradient Background - Move this to the top but behind content */}
       <div 
         className="absolute inset-0 bg-black z-0"
@@ -133,94 +151,106 @@ export default function Projects() {
       </div>
 
       <div className="max-w-3xl mx-auto relative z-10">
-        <h2 className="text-4xl font-bold text-white mb-20 text-center">Projects</h2>
+        <ScrollReveal width="100%">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-10 md:mb-20 text-center">
+            Projects
+          </h2>
+        </ScrollReveal>
         
         {/* Project Cards */}
-        <div className="flex flex-col gap-4 mb-32">
+        <div className="flex flex-col gap-4 mb-20 md:mb-32">
           {projects.map((project) => (
-            <div
-              key={project.id}
-              className="relative"
-            >
+            <ScrollReveal key={project.id} width="100%">
               <div
-                onMouseEnter={() => setHoveredProject(project)}
-                onMouseLeave={() => setHoveredProject(null)}
-                onClick={() => setSelectedProject(project)}
-                className="group relative h-28 bg-[#1E1E1E] rounded-xl overflow-hidden cursor-pointer hover:bg-[#2D2D2D] transition-all duration-300 flex items-center"
+                className="relative"
               >
-                {/* Image */}
-                <div className="relative h-full aspect-square">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                
-                {/* Title and Tech Stack */}
-                <div className="flex-1 px-6">
-                  <h3 className="text-xl font-bold text-white group-hover:text-[#39ff14] transition-colors mb-2">
-                    {project.title}
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {project.skills.slice(0, 3).map((skill) => (
-                      <span
-                        key={skill}
-                        className="px-2 py-1 text-xs bg-black/30 text-gray-300 rounded-full"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                    {project.skills.length > 3 && (
-                      <span className="px-2 py-1 text-xs text-gray-400">
-                        +{project.skills.length - 3} more
-                      </span>
-                    )}
-                  </div>
-                </div>
-
-                {/* Arrow Icon */}
-                <div className="ml-auto mr-6 opacity-0 transform translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
-                  <svg
-                    className="w-6 h-6 text-[#39ff14]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </div>
-              </div>
-
-              {/* Preview Popup */}
-              {hoveredProject?.id === project.id && (
                 <div
-                  ref={previewRef}
-                  className="absolute left-full ml-4 top-0 w-64 bg-[#1E1E1E] rounded-xl overflow-hidden shadow-xl"
-                  style={{ opacity: 0 }}
+                  onMouseEnter={() => handleProjectHover(project)}
+                  onMouseLeave={() => handleProjectHover(null)}
+                  onClick={() => setSelectedProject(project)}
+                  className={`group relative h-24 md:h-28 bg-[#1E1E1E] rounded-xl overflow-hidden cursor-pointer 
+                    ${isLargeScreen ? 'hover:bg-[#2D2D2D]' : ''} transition-all duration-300 flex items-center`}
                 >
-                  <div className="relative h-36">
+                  {/* Image */}
+                  <div className="relative h-full aspect-square">
                     <Image
-                      src={hoveredProject.image}
-                      alt={hoveredProject.title}
+                      src={project.image}
+                      alt={project.title}
                       fill
                       className="object-cover"
                     />
                   </div>
-                  <div className="p-4">
-                    <p className="text-gray-300 text-sm line-clamp-3">
-                      {hoveredProject.longDesc}
-                    </p>
+                  
+                  {/* Title and Tech Stack */}
+                  <div className="flex-1 px-4 md:px-6">
+                    <h3 className={`text-lg md:text-xl font-bold text-white 
+                      ${isLargeScreen ? 'group-hover:text-[#39ff14]' : ''} 
+                      transition-colors mb-1 md:mb-2 line-clamp-1`}
+                    >
+                      {project.title}
+                    </h3>
+                    <div className="flex flex-wrap gap-1 md:gap-2">
+                      {project.skills.slice(0, isLargeScreen ? 3 : 2).map((skill) => (
+                        <span
+                          key={skill}
+                          className="px-2 py-1 text-xs bg-black/30 text-gray-300 rounded-full"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                      {project.skills.length > (isLargeScreen ? 3 : 2) && (
+                        <span className="px-2 py-1 text-xs text-gray-400">
+                          +{project.skills.length - (isLargeScreen ? 3 : 2)} more
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Arrow Icon */}
+                  <div className={`ml-auto mr-3 md:mr-6 
+                    ${isLargeScreen ? 'opacity-0 transform translate-x-2 group-hover:opacity-100 group-hover:translate-x-0' : 'opacity-100'} 
+                    transition-all duration-300`}
+                  >
+                    <svg
+                      className="w-5 h-5 md:w-6 md:h-6 text-[#39ff14]"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
                   </div>
                 </div>
-              )}
-            </div>
+
+                {/* Preview Popup - Only show on large screens */}
+                {isLargeScreen && hoveredProject?.id === project.id && (
+                  <div
+                    ref={previewRef}
+                    className="absolute left-full ml-4 top-0 w-64 bg-[#1E1E1E] rounded-xl overflow-hidden shadow-xl"
+                    style={{ opacity: 0 }}
+                  >
+                    <div className="relative h-36">
+                      <Image
+                        src={hoveredProject.image}
+                        alt={hoveredProject.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="p-4">
+                      <p className="text-gray-300 text-sm line-clamp-3">
+                        {hoveredProject.longDesc}
+                      </p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </ScrollReveal>
           ))}
         </div>
 
@@ -231,14 +261,14 @@ export default function Projects() {
           style={{ opacity: 0 }}
           onClick={() => setSelectedProject(null)}
         >
-          <div className="min-h-screen px-4 flex items-center justify-center">
+          <div className="min-h-screen px-4 py-10 md:py-0 flex items-center justify-center modal-scroll">
             {selectedProject && (
               <div
                 ref={detailsRef}
                 className="w-full max-w-2xl bg-[#1E1E1E] rounded-2xl overflow-hidden"
                 onClick={e => e.stopPropagation()}
               >
-                <div className="relative h-64">
+                <div className="relative h-48 md:h-64">
                   <Image
                     src={selectedProject.image}
                     alt={selectedProject.title}
@@ -252,22 +282,22 @@ export default function Projects() {
                     ✕
                   </button>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-white mb-4">
+                <div className="p-4 md:p-6">
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
                     {selectedProject.title}
                   </h3>
-                  <p className="text-gray-300 mb-6">
+                  <p className="text-gray-300 mb-6 text-sm md:text-base">
                     {selectedProject.longDesc}
                   </p>
                   <div className="mb-6">
-                    <h4 className="text-lg font-semibold text-white mb-3">
+                    <h4 className="text-base md:text-lg font-semibold text-white mb-3">
                       Technologies Used
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {selectedProject.skills.map((skill) => (
                         <span
                           key={skill}
-                          className="px-3 py-1 text-sm bg-gray-800 text-gray-300 rounded-full"
+                          className="px-3 py-1 text-xs md:text-sm bg-gray-800 text-gray-300 rounded-full"
                         >
                           {skill}
                         </span>

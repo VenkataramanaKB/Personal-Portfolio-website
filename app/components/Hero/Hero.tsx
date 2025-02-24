@@ -1,6 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import ScrollReveal from '../ScrollReveal'
+import Image from 'next/image'
 
 const Hero = () => {
   const [time, setTime] = useState<string>('')
@@ -52,41 +54,53 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="relative z-10 text-center px-4">
-        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-          Hi, I'm K B Venkataramana
-        </h1>
-        <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-4">
-          A passionate developer crafting digital experiences with code
-        </p>
-        <div className="mt-8">
-          <button className="px-6 py-3 text-[#39ff14] border border-[#39ff14] rounded-md 
-            hover:bg-[#39ff14] hover:text-black transition-all duration-300 
-            hover:shadow-[0_0_20px_rgba(57,255,20,0.3)]">
-            View My Work
-          </button>
+      <div className="relative z-10 px-4 w-full max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
+          <ScrollReveal>
+            <div className="w-64 h-64 md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px]">
+              <Image
+                src="/myphoto.png"
+                alt="K B Venkataramana"
+                width={500}
+                height={500}
+                className="w-full h-full object-contain"
+                priority
+              />
+            </div>
+          </ScrollReveal>
+
+          <div className="flex-1 flex flex-col items-center">
+            <ScrollReveal>
+              <div className="mb-4 text-center">
+                <p className="text-2xl md:text-3xl text-gray-400 font-light font-space-grotesk">
+                  Hey there! I'm
+                </p>
+              </div>
+              <div className="mb-6 text-center">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-[#39ff14] to-emerald-500 text-transparent bg-clip-text whitespace-nowrap font-space-grotesk">
+                  K B Venkataramana
+                </h1>
+                <p className="text-xl text-gray-400 mt-4 font-space-grotesk">
+                  Software Developer
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal>
+              <div className="mb-4 text-center">
+                <p className="text-xl md:text-2xl text-gray-300 font-space-grotesk">
+                  Turning coffee into code and ideas into reality. 
+                  <br className="hidden md:block" />
+                </p>
+              </div>
+            </ScrollReveal>
+          </div>
         </div>
       </div>
 
-      {/* Decorative Elements */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
-        <span className="text-gray-400 text-sm mb-2">Scroll Down</span>
-        <svg 
-          className="w-6 h-6 text-gray-400" 
-          fill="none" 
-          strokeLinecap="round" 
-          strokeLinejoin="round" 
-          strokeWidth="2" 
-          viewBox="0 0 24 24" 
-          stroke="currentColor"
-        >
-          <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-        </svg>
-      </div>
-
+      {/* Background */}
       <div 
-        className="absolute inset-0 bg-black"
+        className="absolute inset-0 bg-black z-0"
         style={{
           background: `radial-gradient(circle at ${mousePosition.x * 100}% ${mousePosition.y * 100}%, rgba(57, 255, 20, 0.08), transparent 10%)`
         }}

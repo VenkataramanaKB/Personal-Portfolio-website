@@ -68,13 +68,13 @@ const Navbar = () => {
       )
     } else {
       // Close animation
-      gsap.to(items, { y: 50, opacity: 0, duration: 0.3 })
-      gsap.to(menu, {
-        opacity: 0,
-        duration: 0.3,
-        delay: 0.2,
-        onComplete: () => gsap.set(menu, { display: 'none' })
+      const tl = gsap.timeline({
+        onComplete: () => {
+          gsap.set(menu, { display: 'none' })
+        }
       })
+      tl.to(items, { y: 50, opacity: 0, duration: 0.3 })
+        .to(menu, { opacity: 0, duration: 0.3 }, "-=0.1")
     }
   }, [isMenuOpen])
 
@@ -140,21 +140,22 @@ const Navbar = () => {
                 type="button"
                 className="inline-flex items-center justify-center p-2 rounded-md text-gray-200 hover:text-white z-50 relative"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
               >
                 <div className="w-6 h-6 relative">
                   <span
-                    className={`absolute w-full h-0.5 bg-current transform transition-all duration-200 ease-in-out ${
-                      isMenuOpen ? 'rotate-45 top-3' : 'top-1'
+                    className={`absolute w-full h-0.5 bg-current transform transition-all duration-300 ease-in-out ${
+                      isMenuOpen ? 'rotate-45 top-3' : 'rotate-0 top-1'
                     }`}
                   />
                   <span
-                    className={`absolute w-full h-0.5 bg-current transform transition-all duration-200 ease-in-out top-3 ${
-                      isMenuOpen ? 'opacity-0' : 'opacity-100'
+                    className={`absolute w-full h-0.5 bg-current transform transition-all duration-300 ease-in-out top-3 ${
+                      isMenuOpen ? 'opacity-0 -translate-x-2' : 'opacity-100 translate-x-0'
                     }`}
                   />
                   <span
-                    className={`absolute w-full h-0.5 bg-current transform transition-all duration-200 ease-in-out ${
-                      isMenuOpen ? '-rotate-45 top-3' : 'top-5'
+                    className={`absolute w-full h-0.5 bg-current transform transition-all duration-300 ease-in-out ${
+                      isMenuOpen ? '-rotate-45 top-3' : 'rotate-0 top-5'
                     }`}
                   />
                 </div>
@@ -168,7 +169,7 @@ const Navbar = () => {
         {/* Full Screen Mobile Menu */}
         <div
           ref={menuRef}
-          className="fixed inset-0 top-0 left-0 right-0 bottom-0 bg-black/80 backdrop-blur-md hidden lg:hidden z-50 flex-col items-center justify-center"
+          className="fixed inset-0 top-0 left-0 right-0 bottom-0 bg-black/90 backdrop-blur-md hidden lg:hidden z-40 flex-col items-center justify-center"
           style={{ 
             display: 'none',
             height: '100vh',
