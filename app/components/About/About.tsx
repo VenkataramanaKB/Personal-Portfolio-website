@@ -13,8 +13,8 @@ const About = () => {
 
   const commands = {
     ls: 'Available commands:\n• whoami\n• skills\n• contact\n• clear',
-    whoami: 'Education:\n• B.Tech in Computer Science\n• Specialization in Web Development',
-    skills: 'Technical Skills:\n• Frontend: React, Next.js, TypeScript\n• Backend: Node.js, Python\n• Database: MongoDB, PostgreSQL\n• Other: Git, Docker',
+    whoami: '• I am venkataramana from india\n• I love tech and problem-solving\n• 2X Hackathon Winner & a HNI(High on Never Give Up Individual)\n• I have interned as an Applied Data Science intern @ A2Z4.0 Research & Analytics\n• Big on self-improvement, learning new tech, staying fit, and leveling up daily\n• I use Linux btw ',
+    skills: 'Technical Skills:\n• Frontend: React, Next.js, TypeScript\n• Backend: Node.js, ExpressJs, Flask\n• Database: MongoDB, PostgreSQL\n• AI/ML: OpenCV, Scikit-learn, Pandas, Numpy, BeautifulSoup\n• Robotics: ROS2, SLAM, Path-Planning Algorithms, Gazebo',
     contact: 'Contact Information:\n• GitHub: github.com/venkataramanakb\n• LinkedIn: linkedin.com/in/venkataramanakb\n• X: x.com/encryptedvenkat',
     clear: 'CLEAR',
     help: 'Type "ls" to see available commands'

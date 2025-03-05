@@ -19,43 +19,51 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: "E-Commerce Platform",
-    image: "/projects/ecommerce.jpg",
-    longDesc: "A comprehensive e-commerce platform built with Next.js and Node.js...",
-    skills: ["Next.js", "Node.js", "MongoDB", "Stripe", "TailwindCSS"],
-    link: "https://github.com/yourusername/project"
+    title: "MedScript",
+    image: "/projects/images/medscript.png",
+    longDesc: "MedScript is an innovative solution designed to revolutionize medical documentation. Our product generates comprehensive medical reports from surgical conversations, ensuring accuracy, efficiency, and security in medical record-keeping.",
+    skills: ["NLP", "ASR", "LLM", "MongoDB"],
+    link: "https://youtu.be/tx6mPJwum8g?si=PnfyKz7KMVru2npH"
   },
   {
     id: 2,
-    title: "Social Media App",
-    image: "/projects/social.jpg",
-    longDesc: "A modern social media application with real-time messaging...",
-    skills: ["React", "Firebase", "Socket.io", "TailwindCSS"],
-    link: "https://github.com/yourusername/project"
+    title: "License Lens",
+    image: "/projects/images/licenselens.png",
+    longDesc: "Discover software licenses in plain language. A web app that scrapes license information and explains it using AI.",
+    skills: ["Flask", "BeautifulSoup", "MistralAI", "React", "TailwindCSS"],
+    link: "https://github.com/VenkataramanaKB/LicenseLens"
   },
   {
     id: 3,
-    title: "Portfolio Website",
-    image: "/projects/portfolio.jpg",
-    longDesc: "An interactive portfolio website showcasing projects...",
-    skills: ["Next.js", "GSAP", "TailwindCSS", "Framer Motion"],
-    link: "https://github.com/yourusername/project"
+    title: "Attack on Titan Quotes API",
+    image: "/projects/images/aot.png",
+    longDesc: "A simple and lightweight API that serves inspirational and memorable quotes from the popular anime Attack on Titan, along with the respective author.",
+    skills: ["Express", "Node Js", "React"],
+    link: "https://attackontitanquotes.vercel.app/"
   },
   {
     id: 4,
-    title: "Task Management",
-    image: "/projects/tasks.jpg",
-    longDesc: "A task management system with team collaboration features...",
-    skills: ["Vue.js", "Express", "PostgreSQL", "Docker"],
-    link: "https://github.com/yourusername/project"
+    title: "Automated Research Summary Generator",
+    image: "/projects/images/research.png",
+    longDesc: "Developed a web scrapping tool which is capable of generating a scholar's Resume based on publication and citation details from Google Scholar",
+    skills: ["BeautifulSoup", "Streamlit", "Python"],
+    link: "https://research-summary-generator.streamlit.app/"
   },
   {
     id: 5,
-    title: "AI Chat Application",
-    image: "/projects/chat.jpg",
-    longDesc: "An AI-powered chat application using OpenAI's GPT model...",
-    skills: ["Python", "FastAPI", "OpenAI", "React"],
-    link: "https://github.com/yourusername/project"
+    title: "Computer vision based monitoring of Underloading of Coal Wagons",
+    image: "/projects/images/wagon.png",
+    longDesc: "An IoT device is designed to monitor the underloading of coal wagons and promptly notify the concerned authorities and payloaders. Utilizing advanced computer vision and TensorFlow, the system ensures precise monitoring and efficient communication.",
+    skills: ["OpenCV", "TensorFlow"],
+    link: "https://youtu.be/yVLwRLy26nk?si=jBd3oH1Qifpe8QuD"
+  },
+  {
+    id: 6,
+    title: "Gesture-Based Home Automation",
+    image: "/projects/images/homeautomation.png",
+    longDesc: "It is a home automation system leverages the power of computer vision and machine learning to create an intuitive, gesture-based interface for controlling household devices. By analyzing user gestures, specific processes such as turning on or off the lights can be seamlessly automated with a quick response time.",
+    skills: ["OpenCV", "Serial Communication", "MediaPipe"],
+    link: "https://github.com/VenkataramanaKB/Gesture-Based-Home-Automation"
   }
 ]
 
@@ -129,14 +137,13 @@ export default function Projects() {
   }
 
   return (
-    <section 
-      className={`relative min-h-[100dvh] ${
-        isHomePage ? 'pt-0' : 'pt-32 md:pt-48'
-      } pb-20 md:pb-32 px-4`} 
+    <section
+      className={`relative min-h-[100dvh] ${isHomePage ? 'pt-0' : 'pt-32 md:pt-48'
+        } pb-20 md:pb-32 px-4`}
       id="projects"
     >
       {/* Gradient Background - Move this to the top but behind content */}
-      <div 
+      <div
         className="absolute inset-0 bg-black z-0"
         style={{
           background: `radial-gradient(circle at ${mousePosition.x * 100}% ${mousePosition.y * 100}%, rgba(57, 255, 20, 0.08), transparent 10%)`
@@ -156,7 +163,7 @@ export default function Projects() {
             Projects
           </h2>
         </ScrollReveal>
-        
+
         {/* Project Cards */}
         <div className="flex flex-col gap-4 mb-20 md:mb-32">
           {projects.map((project) => (
@@ -180,7 +187,7 @@ export default function Projects() {
                       className="object-cover"
                     />
                   </div>
-                  
+
                   {/* Title and Tech Stack */}
                   <div className="flex-1 px-4 md:px-6">
                     <h3 className={`text-lg md:text-xl font-bold text-white 
