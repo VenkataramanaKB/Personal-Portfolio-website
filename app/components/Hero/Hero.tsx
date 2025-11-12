@@ -89,7 +89,7 @@ const Hero = () => {
             <ScrollReveal>
               <div className="mb-4 text-center">
                 <p className="text-xl md:text-2xl text-gray-300 font-space-grotesk">
-                  Big Stepper 
+                  More than a dev
                   <br className="hidden md:block" />
                 </p>
               </div>
