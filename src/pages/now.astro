@@ -9,11 +9,19 @@ if (!entry) {
 }
 
 const { Content } = await render(entry);
-const lu = entry.data.lastUpdated;
+
 const updated =
-	lu != null && lu instanceof Date && !Number.isNaN(lu.valueOf())
-		? new Intl.DateTimeFormat('en-GB', { dateStyle: 'long', timeStyle: 'short' }).format(lu)
-		: null;
+	entry.data.lastUpdated instanceof Date
+		? entry.data.lastUpdated.toLocaleString('en-GB', {
+				timeZone: 'Asia/Kolkata',
+				day: 'numeric',
+				month: 'long',
+				year: 'numeric',
+				hour: 'numeric',
+				minute: '2-digit',
+				hour12: true,
+		  })
+		: entry.data.lastUpdated;
 ---
 
 <Layout title="Now — whencut.in" active="now">
