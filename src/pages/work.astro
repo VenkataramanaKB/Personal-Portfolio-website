@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Default.astro';
+import { getCollection, render } from 'astro:content';
+
+const workEntries = await getCollection('work');
+const entry = workEntries.find((e) => e.id === 'index') ?? workEntries[0];
+if (!entry) {
+	throw new Error('Expected src/content/work/index.md for the /work page.');
+}
+
+const isDraftHidden = import.meta.env.PROD && entry.data.draft;
+const { Content } = await render(entry);
+---
+
+<Layout title="Work — whencut.in" active="work">
+	<div class="prose">
+		<!-- <h1>Work</h1> -->
+		{
+			isDraftHidden ? (
+				<p class="text-[var(--color-muted)]">This page is marked draft and is hidden in production.</p>
+			) : (
+				<Content />
+			)
+		}
+	</div>
+</Layout>

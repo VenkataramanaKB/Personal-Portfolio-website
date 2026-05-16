@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Default.astro';
+import { getCollection, render } from 'astro:content';
+
+const entries = await getCollection('now');
+const entry = entries[0];
+if (!entry) {
+	throw new Error('Expected src/content/now/now.md (singleton /now page).');
+}
+
+const { Content } = await render(entry);
+const lu = entry.data.lastUpdated;
+const updated =
+	lu != null && lu instanceof Date && !Number.isNaN(lu.valueOf())
+		? new Intl.DateTimeFormat('en-GB', { dateStyle: 'long', timeStyle: 'short' }).format(lu)
+		: null;
+---
+
+<Layout title="Now — whencut.in" active="now">
+	<div class="prose">
+		<h1>Now</h1>
+		{updated ? <p class="meta-line -mt-2 mb-8">Last updated · {updated}</p> : null}
+		<Content />
+	</div>
+</Layout>

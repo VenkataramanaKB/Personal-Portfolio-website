@@ -1,0 +1,20 @@
+---
+interface Props {
+	active?: 'writing' | 'work' | 'now' | 'home';
+}
+
+const { active } = Astro.props;
+---
+
+<header class="site-header">
+	<div class="site-header-inner">
+		<a href="/" class="site-brand">whencut</a>
+		<nav class="nav-row" aria-label="Primary">
+			<a href="/writing" data-active={active === 'writing' ? 'true' : 'false'}>Writing</a>
+			<span class="nav-sep" aria-hidden="true">·</span>
+			<a href="/work" data-active={active === 'work' ? 'true' : 'false'}>Work</a>
+			<span class="nav-sep" aria-hidden="true">·</span>
+			<a href="/now" data-active={active === 'now' ? 'true' : 'false'}>Now</a>
+		</nav>
+	</div>
+</header>

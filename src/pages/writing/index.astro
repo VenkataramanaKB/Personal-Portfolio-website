@@ -1,0 +1,47 @@
+---
+import Layout from '../../layouts/Default.astro';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
+function listedWriting(e: CollectionEntry<'writing'>): boolean {
+	if (e.id.startsWith('_')) return false;
+	if (import.meta.env.PROD && e.data.draft) return false;
+	return true;
+}
+
+const posts = (await getCollection('writing', listedWriting)).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+function writingHref(id: string): string {
+	return '/writing/' + id.split('/').map(encodeURIComponent).join('/');
+}
+
+function formatPubDate(d: Date): string {
+	return new Intl.DateTimeFormat('en-GB', { dateStyle: 'long', timeStyle: 'short' }).format(d);
+}
+---
+
+<Layout title="Writing — whencut.in" active="writing">
+	<div class="prose">
+		<h1>Writing</h1>
+		{
+			posts.length === 0 ? (
+				<p class="text-[var(--color-muted)]">
+					No posts yet.
+				</p>
+			) : (
+				<ul class="list-none !pl-0">
+					{posts.map((p) => (
+						<li class="mb-5">
+							<a href={writingHref(p.id)} class="font-normal no-underline hover:underline">
+								{p.data.title}
+							</a>
+							<div class="meta-line mt-0.5">{formatPubDate(p.data.pubDate)}</div>
+						</li>
+					))}
+				</ul>
+			)
+		}
+	</div>
+</Layout>

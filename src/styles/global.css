@@ -1,0 +1,489 @@
+@import "tailwindcss";
+
+/* Typography: Inter for the wordmark, EB Garamond for everything else (nadh.in–adjacent). */
+
+@theme {
+	--font-serif: "EB Garamond", "Palatino Linotype", Palatino, Georgia, serif;
+	--font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+	--color-bg: #ffffff;
+	--color-bg-quote: #f0f0f0;
+	--color-ink: #141414;
+	--color-muted: #3d3d3d;
+	--color-rule: #e5e5e5;
+	--color-accent: #c05621;
+	--color-accent-hover: #9a4319;
+}
+
+:root {
+	/* Overall column width (header + main share this). */
+	--page-max: min(62rem, calc(100vw - 2.5rem));
+	/* Inner pages: keep a comfortable measure, centred in the wider shell. */
+	--prose-readable: min(50rem, 100%);
+}
+
+html {
+	color-scheme: light;
+}
+
+body {
+	font-family: var(--font-serif);
+	background: var(--color-bg);
+	color: var(--color-ink);
+	font-size: clamp(1.2rem, 3.0vw, 1.8rem);
+	font-weight: 400;
+	line-height: 1.65;
+	letter-spacing: 0.01em;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+/* Links: accent colour, no underline by default (keyboard users get a focus ring). */
+a {
+	color: var(--color-accent);
+	text-decoration: none;
+}
+
+a:hover {
+	color: var(--color-accent-hover);
+	text-decoration: underline;
+	text-underline-offset: 0.18em;
+	text-decoration-thickness: 1px;
+}
+
+a:focus-visible {
+	outline: 2px solid var(--color-accent);
+	outline-offset: 3px;
+}
+
+.site-shell {
+	box-sizing: border-box;
+	width: 100%;
+	max-width: var(--page-max);
+	min-height: 100vh;
+	margin-left: auto;
+	margin-right: auto;
+	padding: clamp(2.5rem, 6vw, 4rem) clamp(1.25rem, 5vw, 2.5rem) max(2.5rem, env(safe-area-inset-bottom));
+	padding-left: max(1.25rem, env(safe-area-inset-left));
+	padding-right: max(1.25rem, env(safe-area-inset-right));
+}
+
+.site-main {
+	width: 100%;
+	max-width: var(--page-max);
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+.prose {
+	width: 100%;
+	max-width: var(--prose-readable);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Home: copy uses the wide column, not the narrow prose measure. */
+.prose.home-body {
+	max-width: none;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.prose em.lead,
+.prose p.subtitle {
+	font-style: italic;
+}
+
+.prose img,
+.prose picture img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+	margin: 1.35rem 0;
+}
+
+.prose figure {
+	margin: 1.5rem 0;
+	max-width: 100%;
+}
+
+.prose figcaption {
+	font-family: var(--font-serif);
+	font-size: 0.92rem;
+	color: var(--color-muted);
+	margin-top: 0.5rem;
+	line-height: 1.45;
+}
+
+.prose h1,
+.prose h2,
+.prose h3 {
+	font-weight: 600;
+	letter-spacing: -0.02em;
+	color: var(--color-ink);
+	font-family: var(--font-serif);
+}
+
+.prose h1 {
+	font-size: clamp(1.85rem, 4vw, 2.2rem);
+	line-height: 1.2;
+	margin-top: 0;
+	margin-bottom: 1rem;
+}
+
+.prose h2 {
+	font-size: clamp(1.2rem, 3.5vw, 1.4rem);
+	font-weight: 600;
+	margin-top: 2rem;
+	margin-bottom: 0.65rem;
+}
+
+.prose h3 {
+	font-size: 1.15rem;
+	font-weight: 600;
+	margin-top: 1.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.prose p {
+	margin-top: 0;
+	margin-bottom: 1rem;
+}
+
+.prose ul,
+.prose ol {
+	margin: 0 0 1rem 0;
+	padding-left: 1.35rem;
+}
+
+.prose li {
+	margin-bottom: 0.45rem;
+}
+
+/* List lead + em dash pattern: **Name** — rest (name picks up accent like the reference). */
+.prose li > strong:first-of-type {
+	color: var(--color-accent);
+	font-weight: 600;
+}
+
+.prose li > a:first-of-type {
+	font-weight: 600;
+}
+
+.prose hr {
+	border: none;
+	border-top: 1px solid var(--color-rule);
+	margin: 2rem 0;
+}
+
+/* Pull quote / blockquote block (grey panel + heavy left bar + top rule). */
+.prose blockquote {
+	margin: 1.75rem 0;
+	padding: 1.2rem 1.2rem 1.2rem 1.3rem;
+	border-top: 1px solid var(--color-rule);
+	border-left: 5px solid var(--color-ink);
+	background: var(--color-bg-quote);
+	font-style: italic;
+	color: var(--color-ink);
+}
+
+.prose blockquote p {
+	margin-bottom: 0.65rem;
+}
+
+.prose blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+.prose blockquote a {
+	font-style: italic;
+}
+
+.prose code {
+	font-family: var(--font-sans);
+	font-size: 0.86em;
+	font-weight: 500;
+	padding: 0.12em 0.35em;
+	border-radius: 2px;
+	color: var(--color-ink);
+	background: #f3f3f3;
+}
+
+.meta-line {
+	font-family: var(--font-serif);
+	font-size: 0.82rem;
+	font-weight: 500;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--color-muted);
+}
+
+/* Header */
+.site-header {
+	margin-bottom: 2.75rem;
+	padding-bottom: 1.5rem;
+	border-bottom: 1px solid var(--color-rule);
+	
+}
+
+.site-header-inner {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 0.75rem 1.25rem;
+	width: 100%;
+	max-width: var(--page-max);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.site-brand {
+	font-family: var(--font-sans);
+	/* font-size: 1.05rem;
+	 */
+	font-size: clamp(1.2rem, 3.0vw, 1.8rem);
+	font-weight: 700;
+	letter-spacing: -0.02em;
+	color: var(--color-ink);
+	text-decoration: none;
+}
+
+.site-brand:hover {
+	color: var(--color-ink);
+	text-decoration: none;
+	opacity: 0.88;
+}
+
+.nav-row {
+	font-family: var(--font-serif);
+	/* font-size: 1.05rem; */
+	font-size: clamp(1.2rem, 3.0vw, 1.8rem);
+	font-weight: 500;
+	letter-spacing: 0.01em;
+	text-transform: none;
+}
+
+.nav-row a {
+	color: var(--color-accent);
+	text-decoration: none;
+	margin-left: 0.35rem;
+	margin-right: 0.35rem;
+}
+
+.nav-row a:first-child {
+	margin-left: 0;
+}
+
+.nav-row a:last-child {
+	margin-right: 0;
+}
+
+.nav-row a:hover {
+	color: var(--color-accent-hover);
+	text-decoration: underline;
+	text-underline-offset: 0.18em;
+}
+
+.nav-row a[data-active='true'] {
+	color: var(--color-ink);
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.nav-row a[data-active='true']:hover {
+	color: var(--color-ink);
+	text-decoration: none;
+	opacity: 0.85;
+}
+
+.nav-row .nav-sep {
+	margin: 0 0.35rem;
+	color: var(--color-rule);
+	user-select: none;
+}
+
+/* Home: portrait sits to the side on wide screens; copy uses full width and wraps the circle (no rigid grid column). */
+.home-layout {
+	display: flow-root;
+	width: 100%;
+}
+
+.home-portrait {
+	margin: 0 auto clamp(1.5rem, 4vw, 2rem);
+	width: clamp(18rem, 70vw, 24rem);
+	aspect-ratio: 1;
+	border-radius: 50%;
+	overflow: hidden;
+	background: var(--color-bg);
+	/* box-shadow:
+		0 0 0 5px var(--color-bg),
+		0 0 0 6px color-mix(in srgb, var(--color-rule) 90%, transparent),
+		0 22px 56px -20px color-mix(in srgb, var(--color-ink) 28%, transparent); */
+}
+
+.home-portrait img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center 18%;
+}
+
+.home-body.prose {
+	width: 100%;
+}
+
+@media (min-width: 720px) {
+	.home-portrait {
+		float: right;
+		clear: right;
+		margin: 0 0 1rem clamp(1.25rem, 3vw, 2.25rem);
+		margin-top: 0.2rem;
+		width: clamp(18rem, 24vw, 26rem);
+		shape-outside: circle(50%);
+		shape-margin: clamp(0.75rem, 2vw, 1.35rem);
+	}
+
+	.home-body.prose {
+		/* Let lines run the full main width; they wrap around the floated circle instead of a narrow “text column”. */
+		width: 100%;
+		max-width: none;
+		padding-right: 0;
+		min-width: 0;
+	}
+}
+
+@media (min-width: 1100px) {
+	.home-portrait {
+		width: clamp(20rem, 22vw, 30rem);
+	}
+}
+
+/* ----- Footer ----- */
+.site-footer {
+	margin-top: clamp(2.5rem, 6vw, 4rem);
+	padding-top: clamp(1.75rem, 4vw, 2.5rem);
+	border-top: 1px solid var(--color-rule);
+	width: 100%;
+	max-width: var(--page-max);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.site-footer-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: clamp(1.5rem, 4vw, 2.75rem);
+	align-items: start;
+}
+
+@media (min-width: 640px) {
+	.site-footer-grid {
+		grid-template-columns: minmax(10rem, 16rem) minmax(0, 1fr);
+		gap: clamp(2rem, 5vw, 4rem);
+	}
+}
+
+.footer-heading-row {
+	display: flex;
+	align-items: center;
+	gap: 0.65rem;
+	margin-bottom: 0.85rem;
+}
+
+.footer-heading {
+	font-family: var(--font-sans);
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--color-muted);
+	margin: 0;
+}
+
+.footer-flourish {
+	display: inline-block;
+	width: 2.5rem;
+	height: 1px;
+	background: linear-gradient(
+		90deg,
+		var(--color-accent),
+		color-mix(in srgb, var(--color-accent) 35%, transparent)
+	);
+	flex: 1;
+	max-width: 4rem;
+	min-width: 1.5rem;
+}
+
+.footer-links {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	font-family: var(--font-serif);
+	font-size: 1.05rem;
+}
+
+.footer-links li {
+	margin-bottom: 0.45rem;
+}
+
+.footer-links a {
+	font-weight: 500;
+}
+
+.footer-placeholder {
+	font-family: var(--font-serif);
+	font-size: 0.95rem;
+	color: var(--color-muted);
+	margin: 0;
+	line-height: 1.5;
+}
+
+.footer-placeholder code {
+	font-family: var(--font-sans);
+	font-size: 0.78em;
+}
+
+.site-footer .footer-aside.prose {
+	max-width: none;
+	margin: 0;
+	font-size: 0.98rem;
+	line-height: 1.55;
+	color: var(--color-muted);
+}
+
+.site-footer .footer-aside.prose p {
+	margin-bottom: 0.75rem;
+}
+
+.site-footer .footer-aside.prose p:last-child {
+	margin-bottom: 0;
+}
+
+.site-footer-base {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.65rem;
+	margin-top: clamp(1.75rem, 4vw, 2.5rem);
+	padding-top: 1.25rem;
+	border-top: 1px solid color-mix(in srgb, var(--color-rule) 85%, transparent);
+}
+
+.footer-mark {
+	color: var(--color-accent);
+	font-size: 0.55rem;
+	line-height: 1;
+	opacity: 0.85;
+}
+
+.footer-copy {
+	font-family: var(--font-sans);
+	font-size: 0.72rem;
+	font-weight: 500;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--color-muted);
+}
+

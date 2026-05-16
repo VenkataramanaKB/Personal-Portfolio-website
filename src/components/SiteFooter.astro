@@ -1,0 +1,62 @@
+---
+import { getCollection, render } from 'astro:content';
+
+const entries = await getCollection('footer');
+const entry = entries[0];
+if (!entry) {
+	throw new Error('Add src/content/footer/index.md for the site footer.');
+}
+
+const { Content } = await render(entry);
+const email = entry.data.email?.trim();
+const github = entry.data.github?.trim();
+const linkedin = entry.data.linkedin?.trim();
+const x = entry.data.x?.trim();
+
+const year = new Date().getFullYear();
+
+const contactItems: { href: string; label: string }[] = [];
+if (email) {
+	const m = email.startsWith('mailto:') ? email : `mailto:${email}`;
+	contactItems.push({ href: m, label: 'Email' });
+}
+if (github) contactItems.push({ href: github, label: 'GitHub' });
+if (linkedin) contactItems.push({ href: linkedin, label: 'LinkedIn' });
+if (x) contactItems.push({ href: x, label: 'X' });
+---
+
+<footer class="site-footer">
+	<div class="site-footer-grid">
+		<section class="footer-contact" aria-labelledby="footer-contact-heading">
+			<div class="footer-heading-row">
+				<h2 id="footer-contact-heading" class="footer-heading">Contact</h2>
+				<span class="footer-flourish" aria-hidden="true"></span>
+			</div>
+			{
+				contactItems.length > 0 ? (
+					<ul class="footer-links">
+						{contactItems.map((item) => (
+							<li>
+								<a href={item.href}>{item.label}</a>
+							</li>
+						))}
+					</ul>
+				) : (
+					<p class="footer-placeholder">
+						Set <code>email</code>, <code>github</code>, <code>linkedin</code>, or <code>x</code> in{' '}
+						<code>src/content/footer/index.md</code> frontmatter.
+					</p>
+				)
+			}
+		</section>
+
+		<div class="footer-aside prose">
+			<Content />
+		</div>
+	</div>
+
+	<!-- <div class="site-footer-base">
+		<span class="footer-mark" aria-hidden="true">◆</span>
+		<span class="footer-copy">whencut.in · {year}</span>
+	</div> -->
+</footer>

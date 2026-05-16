@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Default.astro';
+import { getCollection, render } from 'astro:content';
+
+const home = await getCollection('home');
+const entry = home[0];
+if (!entry) {
+	throw new Error('Expected src/content/home/index.md to exist (singleton home entry).');
+}
+const { Content } = await render(entry);
+
+const rawName = entry.data.displayName;
+const displayName = typeof rawName === 'string' ? rawName.trim() : '';
+const title = displayName ? `${displayName} — whencut.in` : 'whencut.in';
+const portraitAlt = displayName ? `Photograph of ${displayName}` : 'Portrait';
+---
+
+<Layout title={title} active="home">
+	<div class="home-layout">
+		<figure class="home-portrait">
+			<img src="/venkataramana.png" alt={portraitAlt} loading="eager" />
+		</figure>
+		<div class="prose home-body">
+			<Content />
+		</div>
+	</div>
+</Layout>

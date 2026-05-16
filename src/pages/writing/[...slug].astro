@@ -1,0 +1,41 @@
+---
+import Layout from '../../layouts/Default.astro';
+import { getCollection, getEntry, render } from 'astro:content';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('writing', (e) => {
+		if (e.id.startsWith('_')) return false;
+		if (import.meta.env.PROD && e.data.draft) return false;
+		return true;
+	});
+	return posts.map((post) => ({
+		params: { slug: post.id },
+	}));
+}
+
+const raw = Astro.params.slug;
+const id = typeof raw === 'string' ? raw : Array.isArray(raw) ? raw.join('/') : '';
+
+const entry = await getEntry('writing', id);
+if (
+	!entry ||
+	entry.id.startsWith('_') ||
+	(import.meta.env.PROD && entry.data.draft)
+) {
+	return new Response(null, { status: 404 });
+}
+
+const { Content } = await render(entry);
+
+function formatPubDate(d: Date): string {
+	return new Intl.DateTimeFormat('en-GB', { dateStyle: 'long', timeStyle: 'short' }).format(d);
+}
+---
+
+<Layout title={`${entry.data.title} — whencut.in`} active="writing">
+	<article class="prose">
+		<h1>{entry.data.title}</h1>
+		<p class="meta-line mb-8">{formatPubDate(entry.data.pubDate)}</p>
+		<Content />
+	</article>
+</Layout>
