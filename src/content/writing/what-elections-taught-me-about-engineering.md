@@ -1,6 +1,6 @@
 ---
 title: What Elections Taught Me About Engineering
-pubDate: 2026-05-15T12:00:00
+pubDate: "15 May 2026, 11:00 pm"
 category: essays
 ---
 
