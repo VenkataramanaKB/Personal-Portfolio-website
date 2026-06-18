@@ -1,17 +1,22 @@
 ---
-lastUpdated: "16 May 2026, 11:00 pm"
+lastUpdated: "18 June 2026, 7:30 pm"
 ---
 
 ***Building***
 
 Currently working on a "second brain", an agent which is ingested on your knowledge and behaves like you.
 
+Update: Not much progress, having the architecture in mind but not written anything so far
+
 ***Reading***
 
 - "The Almanack of Naval Ravikant" - Eric Jorgenson
-- "Thee Paravattum" - C.N. Annadurai
 
 ***Learning***
 
 Training and learning MMA. <br>
-Studying deep learning.
+
+Practicing self reliance and independent lifestyle. Cooking, Laundry.
+<br>
+
+Aquascaping, building indoor fish ponds.
