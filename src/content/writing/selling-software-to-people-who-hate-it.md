@@ -43,6 +43,15 @@ Software sales is typically very corporate and you sit in boardrooms and show x 
 
 I pitched on a car journey.
 
+**First sale!**
+
+And then it happened. A yes.
+
+Closed a deal, with someone who probably hadn't taken a software pitch seriously in years.
+
+Relief. Pure relief. Then good, then really good.
+And it wasn't a one-off. It kept happening.
+
 **Do They really hate softwares**
 
 No one hates software but i feel why people have been hating to digitalise politics or any other field for that matter you know why? It's because of the people who build and sell them.
