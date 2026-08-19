@@ -487,3 +487,25 @@ a:focus-visible {
 	color: var(--color-muted);
 }
 
+.prose ul {
+	margin: 0 0 1rem 0;
+	padding-left: 1.35rem;
+	list-style: disc;
+}
+
+.prose ol {
+	margin: 0 0 1rem 0;
+	padding-left: 1.35rem;
+	list-style: decimal;
+}
+
+.prose ul ul,
+.prose ol ul {
+	list-style: circle;
+}
+
+.prose ul:not(.list-none) {
+	margin: 0 0 1rem 0;
+	padding-left: 1.35rem;
+	list-style: disc;
+}

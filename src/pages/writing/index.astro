@@ -39,7 +39,7 @@ function formatPubDate(d: Date): string {
 					No posts yet.
 				</p>
 			) : (
-				<ul class="list-none !pl-0">
+				<ul class="!list-none !pl-0">
 					{posts.map((p) => (
 						<li class="mb-5">
 							<a href={writingHref(p.id)} class="font-normal no-underline hover:underline">
