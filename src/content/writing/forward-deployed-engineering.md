@@ -1,5 +1,5 @@
 ---
-title: Forward Deployed Engineering
+title: Software Engineering
 pubDate: "18 August 2026, 3:00 pm"
 category: essays
 ---
@@ -58,4 +58,15 @@ So the process is
 2. Design Something like a storyboard
 3. Generate component by component instead of pages.
 
+What's next?
+
+Hundred years after the printing press was invented, the number of books grew enormous. The industry flourished, copywriters vanished.
+
+But,
+
+Authors didn't vanish
+People valued words over print
+Art grew exponentially.
+
+That's happening rn.
 
